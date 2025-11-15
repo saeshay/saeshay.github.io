@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saesha Loonker • Portfolio</title>
 
-  <!-- Tech Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- ROBOTO FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <!-- Theme Colors -->
   <style>
     :root {
       --background: #15171A;
-      --card: #1E212C;
+      --card: #212430;
       --accent: #C3CDE6;
-      --accent-bright: #D5DDFF;
+      --accent-bright: #CCCCFF;
       --highlight-blue: #80AFFF;
       --accent-dark: #5C60AF;
-      --white: #F7F8FA;
+      --white: #FFFFFF;
       --text: #F7F8FA;
       --light-text: #CFD8EA;
     }
 
     body {
-      margin: 0;
       background: var(--background);
       color: var(--text);
-      font-family: 'Rajdhani', sans-serif;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      min-height: 100vh;
     }
 
     h1, h2, h3, h4 {
-      font-family: 'Orbitron', sans-serif;
       color: var(--accent-bright);
+      font-weight: 700;
       letter-spacing: 1px;
     }
 
@@ -56,6 +56,7 @@
     }
     .hero-btn:hover {
       background: var(--accent-bright);
+      color: var(--accent-dark);
     }
 
     /* ---------- NAV ---------- */
@@ -90,21 +91,19 @@
       box-shadow: 0 2px 14px rgba(98,145,239,0.09);
     }
 
-    /* ---------- SKILLS ONE ROW ---------- */
+    /* ---------- SKILLS = EACH ROW ---------- */
     .skills-grid {
       display: flex;
+      flex-direction: column;
       gap: 1rem;
-      overflow-x: auto;
-      padding-bottom: 0.5rem;
-      scrollbar-width: thin;
     }
     .skill {
+      width: 100%;
       background: rgba(195,205,230,0.08);
-      padding: 0.8rem 1rem;
+      padding: 1rem 1.3rem;
       border-left: 4px solid var(--accent);
-      border-radius: 6px;
-      white-space: nowrap;
-      font-size: 1rem;
+      border-radius: 10px;
+      font-size: 1.1rem;
       color: var(--light-text);
     }
 
@@ -153,23 +152,31 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(15,18,26,0.92);
+      background: rgba(0,0,0,0.85);
       z-index: 100;
       overflow-y: auto;
       padding-top: 50px;
     }
 
     .modal-content {
-      margin: auto;
       background: var(--card);
+      margin: auto;
       padding: 2rem;
       border-radius: 12px;
       border: 2px solid var(--accent-dark);
-      width: 85%;
-      max-width: 900px;
+      width: 80%;
+      max-width: 800px;
       color: var(--text);
-      box-shadow: 0 0 25px var(--highlight-blue);
+      box-shadow: 0 0 24px rgba(128,175,255,0.3);
       animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content img {
+      width: 75%;
+      max-width: 450px;
+      display: block;
+      margin: 1rem auto;
+      border-radius: 10px;
     }
 
     .close {
@@ -187,14 +194,36 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    img {
-      border-radius: 8px;
-      margin-top: 1rem;
-      width: 100%;
+    /* ---------- CONTACT SECTION (WHITE) ---------- */
+    #contact {
+      background: white !important;
+      color: black !important;
+      border-radius: 12px;
     }
-  </style>
 
+    #contact h2 {
+      color: #121212;
+      font-weight: 700;
+    }
+
+    #contact a {
+      color: #1a1a1a;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    #contact a:hover {
+      color: #5C60AF;
+      text-decoration: underline;
+    }
+
+    #contact p:hover {
+      color: #5C60AF;
+    }
+
+  </style>
 </head>
+
 <body>
 
   <!-- HERO -->
@@ -216,17 +245,17 @@
   <!-- ABOUT -->
   <section id="about">
     <h2>About Me</h2>
-    <p>I’m a first-year Mechanical Engineering student at the University of Texas at Austin with a passion for building systems that push the bounds of technology. My work spans clinical AI research, robotics, and aerodynamic CFD analysis. I love solving problems across disciplines, learning new tools, and taking on projects that challenge me as an engineer.</p>
+    <p>I’m a first-year Mechanical Engineering student at UT Austin with a passion for building systems that push the bounds of technology. My work spans clinical AI research, robotics, and aerodynamic CFD analysis. I love solving problems across disciplines and taking on projects that challenge me as an engineer.</p>
   </section>
 
   <!-- SKILLS -->
   <section id="skills">
     <h2>Skills</h2>
     <div class="skills-grid">
-      <div class="skill"><b>CAD:</b> SolidWorks, Fusion 360, AutoCAD</div>
+      <div class="skill"><b>CAD & Design:</b> SolidWorks, Fusion 360, AutoCAD</div>
       <div class="skill"><b>Programming:</b> Python, C++, MATLAB, HTML/CSS</div>
       <div class="skill"><b>Hardware:</b> Arduino, Raspberry Pi, ESP32, 3D Printing</div>
-      <div class="skill"><b>Simulation:</b> ANSYS Fluent, MATLAB</div>
+      <div class="skill"><b>Simulation & Analysis:</b> ANSYS Fluent, MATLAB</div>
       <div class="skill"><b>Soft Skills:</b> Leadership, Communication, Creativity</div>
     </div>
   </section>
@@ -236,31 +265,29 @@
     <h2>Projects</h2>
 
     <div class="projects-grid">
-
       <div class="project" onclick="openModal('modal1')">
-        <img src="images/arduino-cover.png" alt="">
+        <img src="images/arduino-cover.png">
         <div class="project-content">
           <h3>Habit Loop Fitness Device</h3>
-          <p>An Arduino-based wearable for habit reinforcement.</p>
+          <p>Arduino-based wearable reinforcing workout habits.</p>
         </div>
       </div>
 
       <div class="project" onclick="openModal('modal2')">
-        <img src="images/pipeline1.png" alt="">
+        <img src="images/pipeline1.png">
         <div class="project-content">
           <h3>Patient Matching AI Tool</h3>
-          <p>A clinical AI pipeline for rare disease case matching.</p>
+          <p>Clinical AI pipeline for rare disease matching.</p>
         </div>
       </div>
 
       <div class="project" onclick="openModal('modal3')">
-        <img src="images/rw-geometry.png" alt="">
+        <img src="images/rw-geometry.png">
         <div class="project-content">
           <h3>Aerodynamic Analysis (ANSYS Fluent)</h3>
-          <p>Dual-element airfoil CFD study.</p>
+          <p>CFD analysis of dual-element FS wing.</p>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -270,11 +297,11 @@
     <div class="exp-item" onclick="openModal('modal2')">
       <h4>AI/ML Research Intern – LiuZLab, Baylor College of Medicine</h4>
       <span>Summer 2025</span>
-      <p>Developed patient-matching AI pipelines using AWS Bedrock and cloud ML systems.</p>
+      <p>Developed cloud-based patient-matching AI pipelines using AWS Bedrock and FAISS.</p>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT (WHITE) -->
   <section id="contact">
     <h2>Contact</h2>
     <p>📧 <a href="mailto:saesha.loonker@utexas.edu">saesha.loonker@utexas.edu</a></p>
@@ -288,14 +315,21 @@
     <div class="modal-content">
       <span class="close" onclick="closeModal('modal1')">&times;</span>
       <h2>Habit Loop Fitness Device</h2>
-      <ul>
+
+      <ul style="line-height:1.7em;padding-left:1em;">
         <li>Led a 4-person engineering team in the Behavioral Engineering Lab.</li>
-        <li>Designed and built a wearable device for workout habit reinforcement.</li>
-        <li>Integrated Arduino C++ with infrared and accelerometer sensors.</li>
-        <li>Performed user testing and iterated design for reliability.</li>
+        <img src="images/arduino-cover.png">
+
+        <li>Designed and built a wearable exercise habit reinforcement device.</li>
+        <img src="images/arduino-poster.jpg">
+
+        <li>Programmed Arduino microcontrollers (C++) for sensor integration.</li>
+        <img src="images/arduino-cover.png">
+
+        <li>Integrated infrared + accelerometer sensors for movement detection.</li>
+
+        <li>Performed user testing and iterative design improvements.</li>
       </ul>
-      <img src="images/arduino-cover.png" alt="">
-      <img src="images/arduino-poster.jpg" alt="">
     </div>
   </div>
 
@@ -304,16 +338,27 @@
     <div class="modal-content">
       <span class="close" onclick="closeModal('modal2')">&times;</span>
       <h2>Patient Matching AI Tool</h2>
-      <ul>
-        <li>Developed an AWS-based pipeline for medical case retrieval & reranking.</li>
-        <li>Used FAISS embeddings for similarity search on rare disease datasets.</li>
-        <li>Implemented Claude 3 LLM reranking for physician decision support.</li>
-        <li>Benchmarked on multiple clinical datasets including a real TCH dataset.</li>
+
+      <ul style="line-height:1.7em;padding-left:1em;">
+
+        <li>Developed an AWS-based medical record matching pipeline.</li>
+        <img src="images/pipeline1.png">
+
+        <li>Used FAISS embeddings for semantic retrieval.</li>
+        <img src="images/pipline2.png">
+
+        <li>Implemented Claude 3 reranking for improved physician support.</li>
+        <img src="images/pipeline3.png">
+
+        <li>Benchmarked performance across multiple rare-disease datasets.</li>
+        <img src="images/pipeline-results.png">
+
+        <li>Collaborated in fast-paced clinical AI research environments.</li>
+
       </ul>
-      <img src="images/pipeline1.png">
-      <img src="images/pipline2.png">
-      <img src="images/pipeline3.png">
-      <img src="images/pipeline-results.png">
+
+      <img src="images/patient-matching-pipeline.jpg">
+      <img src="https://images.unsplash.com/photo-1593642634367-d91a135587b5?auto=format&fit=crop&w=800&q=80">
     </div>
   </div>
 
@@ -322,34 +367,36 @@
     <div class="modal-content">
       <span class="close" onclick="closeModal('modal3')">&times;</span>
       <h2>Aerodynamic Analysis with ANSYS Fluent</h2>
-      <p><strong>Motivation:</strong> Self-driven CFD project exploring reliable meshing & turbulence models.</p>
-      <p><strong>Objective:</strong> Simulate airflow over dual-element S1223/E240 airfoil to predict lift & drag.</p>
 
-      <ul>
-        <li>Created geometry based on Selig S1223 + Eppler E240.</li>
-        <li>Applied mesh refinement for accurate boundary-layer resolution.</li>
-        <li>Used k-omega SST turbulence model at 12 m/s inlet flow.</li>
-        <li>Analyzed convergence using lift/drag forces & residuals.</li>
+      <ul style="line-height:1.7em;padding-left:1em;">
+        <li>Created geometry using Selig S1223 + Eppler E240 profiles.</li>
+        <img src="images/rw-geometry.png">
+
+        <li>Applied mesh refinement for accurate boundary-layer prediction.</li>
+        <img src="images/rw-mesh.png">
+        <img src="images/rw-mesh2.png">
+        <img src="images/rw-mesh3.png">
+
+        <li>Used k-omega SST turbulence model at 12 m/s inlet velocity.</li>
+
+        <li>Evaluated convergence using lift, drag, and residual plots.</li>
+        <img src="images/rw-lift.png">
+        <img src="images/rw-drag.png">
+        <img src="images/rw-residuals.png">
       </ul>
-
-      <img src="images/rw-geometry.png">
-      <img src="images/rw-mesh.png">
-      <img src="images/rw-mesh2.png">
-      <img src="images/rw-mesh3.png">
-      <img src="images/rw-lift.png">
-      <img src="images/rw-drag.png">
-      <img src="images/rw-residuals.png">
     </div>
   </div>
 
-  <!-- JS -->
+  <!-- MODAL JS -->
   <script>
     function openModal(id) {
       document.getElementById(id).style.display = "block";
     }
+
     function closeModal(id) {
       document.getElementById(id).style.display = "none";
     }
+
     window.onclick = function(event) {
       document.querySelectorAll('.modal').forEach(modal => {
         if (event.target === modal) modal.style.display = "none";
