@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saesha Loonker • Portfolio</title>
   <meta name="description" content="Portfolio site for Saesha Loonker, Mechanical Engineering at UT Austin.">
-
   <!-- ROBOTO FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-
   <style>
     :root {
       --background: #15171A;
@@ -30,7 +28,6 @@
       min-height: 100vh;
       box-sizing: border-box;
     }
-    /* Sticky HEADER BAR styles */
     .header-bar {
       position: fixed;
       top: 0;
@@ -40,56 +37,87 @@
       background: linear-gradient(75deg, #161824 55%, var(--accent-dark));
       border-bottom: 2px solid var(--accent);
       box-shadow: 0 4px 24px rgba(128,175,255,0.13);
+      padding: 0;
     }
-    .header-main {
-      text-align: center;
-      padding: 2.2rem 1rem 1.2rem;
-    }
-    .header-bar h1,
-    .header-bar p,
-    .header-bar .hero-btn {
-      margin: 0.25rem 0;
-    }
-    .header-bar .hero-btn {
-      margin-top: 1rem;
-      background: var(--highlight-blue);
-      color: #0e0f12;
-      padding: 0.7rem 2rem;
-      border-radius: 24px;
-      text-decoration: none;
-      font-weight: 700;
-      display: inline-block;
-      transition: 0.2s;
-      border: none;
-      font-size: 1.1rem;
-    }
-    .header-bar .hero-btn:hover {
-      background: var(--accent-bright);
-      color: var(--accent-dark);
-    }
-    .header-bar nav {
+    .header-flex {
       display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
-      background: transparent;
-      border-bottom: none;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.5rem 1.5rem;
+      height: 54px;
     }
-    .header-bar nav a {
+    .header-left {
+      flex: 1;
+    }
+    .header-name {
+      color: var(--accent-bright);
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .header-nav {
+      display: flex;
+      gap: 2.1rem;
+      align-items: center;
+      flex: 2;
+      justify-content: center;
+    }
+    .header-nav a {
       color: var(--accent);
       text-decoration: none;
-      font-size: 1.1rem;
+      font-size: 1.07rem;
       transition: 0.2s;
       padding-bottom: 2px;
       border-bottom: 2px solid transparent;
     }
-    .header-bar nav a:hover {
+    .header-nav a:hover {
       color: var(--highlight-blue);
       border-bottom: 2px solid var(--highlight-blue);
     }
-    /* Add space so content never sits under fixed header bar */
+    .header-right {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .hero-btn {
+      margin: 0;
+      background: var(--highlight-blue);
+      color: #0e0f12;
+      padding: 0.45rem 1.3rem;
+      border-radius: 24px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      transition: 0.2s;
+      white-space: nowrap;
+    }
+    .hero-btn:hover {
+      background: var(--accent-bright);
+      color: var(--accent-dark);
+    }
+    @media (max-width: 810px) {
+      .header-flex {
+        flex-direction: column;
+        height: auto;
+        gap: 0.6rem;
+        padding: 0.6rem 0.4rem;
+      }
+      .header-right {
+        justify-content: center;
+        width: 100%;
+        margin-top: 0.4rem;
+      }
+      .header-nav {
+        gap: 1.1rem;
+        flex-wrap: wrap;
+        padding-bottom: 2px;
+      }
+    }
     body {
-      padding-top: 235px;
+      padding-top: 71px; /* adjust if header height changes */
     }
     section {
       max-width: 950px;
@@ -104,7 +132,6 @@
       font-weight: 700;
       letter-spacing: 1px;
     }
-    /* Skills */
     .skills-grid {
       display: flex;
       flex-direction: column;
@@ -119,7 +146,6 @@
       font-size: 1.1rem;
       color: var(--light-text);
     }
-    /* PROJECT GRID */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -148,7 +174,6 @@
     .project-content {
       padding: 1rem;
     }
-    /* EXPERIENCE */
     .exp-item {
       background: linear-gradient(95deg, var(--card) 87%, #263358);
       margin-bottom: 1rem;
@@ -156,7 +181,6 @@
       border-left: 5px solid var(--accent);
       border-radius: 8px;
     }
-    /* MODALS */
     .modal {
       display: none;
       position: fixed;
@@ -198,7 +222,6 @@
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    /* CONTACT (WHITE) */
     #contact {
       background: white !important;
       color: black !important;
@@ -212,15 +235,15 @@
     }
     #contact a:hover { color: #5C60AF; text-decoration: underline; }
     #contact p:hover { color: #5C60AF; }
-    /* Responsive */
     @media (max-width: 800px) {
       section { padding: 1rem; }
       .modal-content { padding: 1rem; }
-      .header-main { padding: 1.2rem 0.5rem 0.6rem;}
-      body { padding-top: 220px; }
+      body { padding-top: 120px; }
     }
     @media (max-width: 550px) {
-      .header-bar nav { flex-direction: column; gap: 1rem; padding: 0.7rem;}
+      .header-flex { flex-direction: column; gap: 0.6rem; height: auto; }
+      .header-right { width: 100%; margin-top: 0.4rem; }
+      .header-nav { gap: 1.1rem; flex-wrap: wrap; padding-bottom: 2px; }
       .project img { height: 100px; }
       body { padding-top: 180px; }
     }
@@ -229,26 +252,27 @@
 <body>
   <!-- Sticky HEADER -->
   <header class="header-bar">
-    <div class="header-main">
-      <h1>Saesha Loonker</h1>
-      <p>Mechanical Engineering • UT Austin</p>
-      <a class="hero-btn" href="Saesha_Loonker_Resume_September_2025.pdf" download>📄 Download Resume</a>
+    <div class="header-flex">
+      <div class="header-left">
+        <span class="header-name">Saesha Loonker</span>
+      </div>
+      <nav class="header-nav">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-right">
+        <a class="hero-btn" href="Saesha_Loonker_Resume_September_2025.pdf" download>📄 Download Resume</a>
+      </div>
     </div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-    </nav>
   </header>
-
   <!-- ABOUT -->
   <section id="about">
     <h2>About Me</h2>
     <p>I’m a first-year Mechanical Engineering student at UT Austin with a passion for building systems that push the bounds of technology. My work spans clinical AI research, robotics, and aerodynamic CFD analysis. I love solving problems across disciplines and taking on projects that challenge me as an engineer.</p>
   </section>
-
   <!-- SKILLS -->
   <section id="skills">
     <h2>Skills</h2>
@@ -260,7 +284,6 @@
       <div class="skill"><b>Soft Skills:</b> Leadership, Communication, Creativity</div>
     </div>
   </section>
-
   <!-- PROJECTS -->
   <section id="projects">
     <h2>Projects</h2>
@@ -294,8 +317,14 @@
         </div>
       </div>
     </div>
+    <div class="project" onclick="openModal('modal5')">
+      <img src="images/epic2.png" alt="Mind Shield PTSD Software">
+      <div class="project-content">
+        <h3>UT ECLAIR Robotics: Self Balancing Robot </h3>
+        <p>A two-wheeled chassis utilizes an accelerometer, gyroscope, and the PID function to stay upright</p>
+      </div>
+    </div>
   </section>
-
   <!-- EXPERIENCE -->
   <section id="experience">
     <h2>Experience</h2>
@@ -319,7 +348,6 @@
       </ul>
     </div>
   </section>
-
   <!-- CONTACT (WHITE) -->
   <section id="contact">
     <h2>Contact</h2>
@@ -328,7 +356,6 @@
     <p>💻 <a href="https://github.com/saeshay">GitHub</a></p>
     <p>📄 <a href="Saesha_Loonker_Resume_September_2025.pdf" download>Download Resume</a></p>
   </section>
-
   <!-- MODAL 1 -->
   <div id="modal1" class="modal" role="dialog" aria-labelledby="modal1title">
     <div class="modal-content">
@@ -346,7 +373,6 @@
       </ul>
     </div>
   </div>
-
   <!-- MODAL 2 -->
   <div id="modal2" class="modal" role="dialog" aria-labelledby="modal2title">
     <div class="modal-content">
@@ -367,7 +393,6 @@
       <img src="https://images.unsplash.com/photo-1593642634367-d91a135587b5?auto=format&fit=crop&w=800&q=80" alt="Computer Unsplash">
     </div>
   </div>
-
   <!-- MODAL 3 -->
   <div id="modal3" class="modal" role="dialog" aria-labelledby="modal3title">
     <div class="modal-content">
@@ -389,7 +414,6 @@
       </ul>
     </div>
   </div>
-
   <!-- MODAL 4 -->
   <div id="modal4" class="modal" role="dialog" aria-labelledby="modal4title">
     <div class="modal-content">
@@ -405,8 +429,19 @@
       </ul>
     </div>
   </div>
-
-  <!-- Modal JS -->
+  <div id="modal5" class="modal" role="dialog" aria-labelledby="modal5title">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal5')">&times;</span>
+      <h2 id="modal5title">Self Balancing Robot</h2>
+      <ul style="line-height:1.7em;padding-left:1em;">
+        <li>For the initial trials of the robot, we utilized a chassis with a lower center of mass. We have plans to lift the center of mass and bring the wheels closer together as we refine the model used to keep the robot upright.</li>
+        <img src="images/epic-model.png" alt="Model">
+        <li>We used an IMU to get the angle of the robot and used a complementary filter to get a more accurate reading. We then used an accelerometer and gyroscope to determine the roll, pitch, and yaw of the motors to keep the robot balanced.</li>
+        <li>Results: stable solution, forces plateaued, informative contour plots for optimization.</li>
+        <img src="images/epic2.png" alt="Model">
+      </ul>
+    </div>
+  </div>
   <script>
     function openModal(id) {
       document.getElementById(id).style.display = "block";
